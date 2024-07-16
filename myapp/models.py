@@ -43,7 +43,7 @@ class InstituteProfile(models.Model):
     logo = models.ImageField(upload_to='institute_logos/')
     target_line = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=15, validators=[validate_phone_number])
-    website_url = models.URLField(validators=[validate_url])
+    website_url = models.URLField(validators=[validate_url], blank=True, null=True) # blank and Null True 
     address = models.TextField()
     country = CountryField()
 

@@ -3,8 +3,8 @@ from django.urls import path
 from . import views  
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import InstituteProfileView
-from .views import BankCreateView
+from .views import CreateAndUpdateView
+# from .views import BankCreateView
 
 
 urlpatterns = [
@@ -17,7 +17,8 @@ urlpatterns = [
     path('lockscreen/', views.auth_lockscreen_basic, name='lockscreen'), 
     path('logout/', views.auth_logout_basic, name='logout'), 
     path('pages-search-results/', views.pages_search_results, name='pages-search-results'), 
-    path('institute-profiles/', InstituteProfileView.as_view(), name='institute-profiles'),
+    path('institute/', CreateAndUpdateView.as_view(), name='institute_list'),
+    path('institute/<int:pk>/', CreateAndUpdateView.as_view(), name='institute_CreateUpdate'),
     
     
     
